@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: WPAS
- * Plugin URI: https://github.com/AutoPigeon/wpas
- * Description: Add a JSON-LD schema to all your pages and posts
+ * Plugin Name: Automatic Post Structured Scheme
+ * Plugin URI: https://github.com/AutoPigeon/wpaps
+ * Description: Add a strctured JSON-LD schema to all your pages and posts
  * Version 1.0.0
  * Author: AutoPigeon Team
  * Author URI: https://github.com/AutoPigeon
@@ -88,7 +88,7 @@ class WPAS {
 		}
 		global $post;
 		$user           = wp_get_current_user();
-		$featured_image = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ), 'thumbnail' );
+		$featured_image = get_the_post_thumbnail_url( get_the_ID(), 'medium' );
 		$author_name    = $user->user_login;
 		$scheme         = array(
 			'headline'        => esc_html( get_the_title() ),
@@ -106,14 +106,14 @@ class WPAS {
 			),
 			'publisher'      => array(
 				'@type' => 'Organization',
-				'name'  => esc_html( get_the_title() ),
+				'name'  => esc_html( get_bloginfo( 'name' ) ),
 				'logo'  => array(
 					'@type' => 'ImageObject',
 					'url'   => esc_url( get_site_icon_url() ),
 				),
 			),
 		);
-		if ( '' == $featured_image ) {
+		if ( '' != $featured_image ) {
 			$scheme['image'] = array(
 				'@type' => 'ImageObject',
 				'url'   => esc_html( $featured_image ),

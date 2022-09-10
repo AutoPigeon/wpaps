@@ -1,5 +1,5 @@
-=== Automatic Post Scheme for SEO ===
-Contributers: 
+=== Automatic Post Structured Scheme ===
+Contributers: @edguru13
 Tags: SEO, scheme
 Requires PHP: 7.0
 License: GPLv2 or later
@@ -11,5 +11,5 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 This will automatically generate a JSON-LD scheme for all your blog posts.
 
 If you want to get a better rating on google, then json-ld scheme is a good quick way. 
-It will help boost your score and make it more likely to get traffic. 
+It will help boost your score on search engines and make it more likely to get traffic. 
 Automatic Post Scheme will generate a JSON-LD scheme for all your pages.
